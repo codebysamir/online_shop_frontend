@@ -1,0 +1,8 @@
+@import './Categorie.css';
+
+.productCategories-box{
+    padding: 2rem;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+}

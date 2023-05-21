@@ -1,0 +1,103 @@
+.product-box{
+    display: flex;
+    flex-direction: column;
+    /* padding: 16px; */
+    height: 400px;
+    width: 300px;
+    background-color: azure;
+    position: relative;
+    margin-bottom: 6rem;
+}
+
+.product-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-box .product-info .price{
+    font-size: 1.5rem;
+    width: 65%;
+}
+
+.product-box .product-info{
+    padding-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.iconOptions {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-size: 2rem;
+    color: ghostwhite;
+}
+
+.iconOptions > * {
+    cursor: pointer;
+}
+
+.chooseSize-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(236, 231, 231);
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 100px;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chooseSize-box .topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chooseSize-box .topbar :nth-child(2) {
+    cursor: pointer;
+}
+
+.sizes{
+    margin: auto;
+    display: flex;
+    gap: 0.5rem;
+}
+.colors{
+    margin: auto;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.sizeBtn{
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.sizeBtn.active{
+    background-color: darkcyan;
+    color: white;
+    border: 1px solid darkcyan 
+}
+
+.sizeBtn:hover{
+    background-color: azure;
+    color: black;
+}
+
+.sizeBtn:focus{
+    background-color: azure;
+}
+
+.chooseSize-box button:disabled:hover{
+    cursor: not-allowed;
+}

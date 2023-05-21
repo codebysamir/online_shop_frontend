@@ -1,0 +1,10 @@
+@import './Product.css';
+
+.productList-box{
+    padding: 2rem 8rem 6rem;
+    /* padding-bottom: 8rem; */
+    display: grid;
+    /* gap: 6rem; */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+}

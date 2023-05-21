@@ -1,0 +1,12 @@
+.pagePath{
+    padding: 1rem 5rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.prevPage{
+    margin-right: 0.5rem;
+    cursor: pointer;
+}

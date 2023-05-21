@@ -1,0 +1,26 @@
+
+.productsPage-box{
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.productsPage-box h1{
+    font-size: 3rem;
+}
+
+.filter-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter, .sort{
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.filter-box #color, .filter-box #size, .filter-box #sort{
+    font-size: 1.2rem
+}

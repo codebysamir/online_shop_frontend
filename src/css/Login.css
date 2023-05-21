@@ -1,0 +1,54 @@
+.login-box{
+    background-image: url('https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=5472&h=3648&dpr=1');
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: cover;
+    /* position: absolute; */
+    box-sizing: border-box;
+    height: 1100px;
+    width: 100%;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden !important;
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode: overlay;
+}
+
+.signIn-box{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    background-color: ghostwhite;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.login-box input{
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.login-btn{
+    border: none;
+    background-color: darkseagreen;
+    color: white;
+    width: 40%;
+    border-radius: 5px;
+}
+.login-btn:hover{
+    background-color: darkslategray;
+}
+
+.forgotPassword-btn, .createAccount-btn{
+    border: none;
+    font-size: medium;
+    text-decoration: underline;
+    padding: 0.5rem;
+}
+
+.loginError{
+    color: red;
+    font-weight: 500;
+}

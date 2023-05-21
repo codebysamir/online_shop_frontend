@@ -1,0 +1,218 @@
+.navbar-box .overlay{
+    display: flex;
+}
+
+.userSideMenu-box{
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 400px;
+    padding: 2rem;
+    z-index: 999;
+}
+
+.userSideMenu-box .profileImg{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex: 1;
+}
+.userSideMenu-box .profileImg .isAdmin{
+    color: darkslateblue;
+    border: 4px solid darkslateblue;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.userSideMenu-box .profileImg img{
+    height: 100px;
+}
+
+.userSideMenu-box .user-details, .change-user{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem;
+    gap: 1rem;
+    flex: 2;
+}
+
+.user-details-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+.user-details-highlight{
+    color:mediumslateblue;
+}
+
+.userSideMenu-box .change-user{
+    flex: 1;
+    width: 60%;
+}
+.userSideMenu-box .change-user > *{
+    text-decoration: underline;
+    transition: 250ms ease-in-out;
+}
+
+.userSideMenu-box .change-user > *:hover{
+    text-decoration: none;
+    border-bottom: 5px double darkcyan;
+}
+
+.userSideMenu-box .delete-user{
+    border: 4px solid red;
+    border-radius: 5px;
+    width: 50%;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    padding: 0.5rem;
+    margin-bottom: 4rem;
+    font-weight: 500;
+    transition: 250ms ease-in-out;
+}
+.userSideMenu-box .delete-user:hover{
+    background-color: red;
+    color: white;
+}
+
+.userSideMenu-box .user-options{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    width: 60%;
+}
+
+.userSideMenu-box .user-options svg{
+    margin-right: 1rem;
+}
+
+.userSideMenu-box .user-options > *{
+    transition: 250ms ease-in-out;
+}
+.userSideMenu-box .user-options > *:hover{
+    border-bottom: 5px double darkcyan;
+}
+
+.userSideMenu-box .change-user span, .delete-user, .user-options span{
+    cursor: pointer;
+}
+
+.orderHistory, .favorites{
+    background-color: ghostwhite;
+    padding: 2rem;
+    display: flex;
+    gap: 3rem;
+    /* box-sizing: border-box; */
+}
+
+.orderHistory .back-icon, .favorites .back-icon{
+    position: fixed;
+    /* width: 100px; */
+    top: 50%;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+.orderHistory .back-icon, .favorites .back-icon:hover{
+    color: darkcyan;
+    transform: translateX(-30%);
+}
+
+.orderDetails{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.orders-box, .favorites-box{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-left: 50px;
+    overflow-y: auto;
+    max-width: 1400px;
+    /* align-items: center; */
+    /* height: 100%; */
+}
+
+.orderHistory .order-box{
+    border: 1px solid black;
+    padding: 1rem;
+    display: flex;
+    /* flex-direction: column; */
+    /* width: 600px; */
+    min-width: 400px;
+    max-width: 100%;
+    height: 400px;
+    gap: 2rem;
+}
+
+.orderProducts-box, .favProduct{
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.order-box .orderProduct, .favorite-box .favProduct{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 1rem;
+}
+
+.order-box .orderProduct-img img, .favorites-box .favProduct-img img{
+    height: 100%;
+}
+
+.order-box .orderProduct-img, .favorites-box .favProduct-img{
+    height: 70%;
+}
+
+.order-box .orderProduct .orderProduct-details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.noOrders, .noFavorites{
+    display: flex;
+    place-content: center;
+    place-items: center;
+    height: 100%;
+    font-size: 1.5rem;
+}
+
+.favorites-box{
+    display: flex;
+    flex-direction: column;
+    /* gap: 3rem; */
+    margin-left: 50px;
+    overflow-y: auto;
+    max-width: 1400px;
+}
+
+.favProduct .favProduct-details{
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.removeFavIcon{
+    font-size: 2rem;
+    color: crimson;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+.removeFavIcon:hover{
+    color: black;
+}

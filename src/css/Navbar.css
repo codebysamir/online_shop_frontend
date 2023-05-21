@@ -1,0 +1,124 @@
+.navbar-box{
+    display: flex;
+    align-items: center;
+    /* gap: 5rem; */
+    justify-content: space-between;
+    padding: 32px;
+    height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 250ms ease-in-out;
+}
+
+.navbar-box.onScroll{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: ghostwhite;
+    z-index: 999;
+}
+
+.navbar-box .input-box {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-right: 0.5rem;
+}
+
+.navbar-box input{
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+}
+
+#navbarSearchIcon{
+    color: darkcyan;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+#navbarSearchIcon:hover{
+    transform: scale(110%);
+}
+#navbarSearchIcon:active{
+    transform: scale(200%);
+
+}
+
+.navbar-box .pageTitle {
+    font-size: 2rem;
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    color: darkcyan;
+}
+
+.signIn_signOut-box {
+    flex: 2;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    font-weight: 700;
+}
+
+.signIn_signOut-box > *{
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+.signIn_signOut-box > *:not(.profile):hover{
+    transform: translateY(10%);
+    border-bottom: 5px double darkcyan;
+    /* font-family: 'Zen Tokyo Zoo', cursive; */
+}
+
+.profile{
+    font-size: 3rem;
+    color: darkcyan;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+.profile:hover{
+    transform: scale(110%);
+    /* box-shadow: 0 0 10px black; */
+}
+
+.shoppingCart-box{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* height: 80px; */
+    padding-right: 1rem;
+}
+
+.shoppingCart{
+    width: 30px;
+}
+
+.shoppingCart svg{
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: 250ms ease-in-out;
+}
+.shoppingCart svg:hover{
+    transform: translateY(10%);
+    border-bottom: 5px double darkcyan;
+}
+
+.shoppingCart-box::after{
+    content: attr(data-cart);
+    color: white;
+    background-color: darkcyan;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 2rem;
+    margin-left: -2.1rem;
+    border-radius: 50%;
+    font-size: small;
+}
+
+[data-cart="0"]::after{
+    display: none;
+}

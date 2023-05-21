@@ -1,0 +1,35 @@
+@import './Slides.css';
+
+.slider-box {
+    color: ghostwhite;
+    height: 1100px;
+    /* padding: 16px; */
+    position: relative;
+}
+
+.sliderArrowIconLeft{
+    cursor: pointer;
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    z-index: 999;
+    left: 2%;
+    top: 50%;
+    transition: 250ms ease-in-out;
+}
+.sliderArrowIconRight{
+    cursor: pointer;
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    z-index: 50;
+    right: 2%;
+    top: 50%;
+    transition: 250ms ease-in-out;
+}
+.sliderArrowIconLeft:hover{
+    transform: translateX(-50%);
+} 
+.sliderArrowIconRight:hover{
+    transform: translateX(50%);
+}

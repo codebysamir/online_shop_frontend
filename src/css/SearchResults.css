@@ -1,0 +1,51 @@
+.searchResult.overlay{
+    top: 10%;
+}
+
+.searchResults-box{
+    background-color: ghostwhite;
+    height: 500px;
+    width: 100%;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    z-index: 999;
+}
+
+.searchResults{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: ghostwhite;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.searchedProduct{
+    height: 100%;
+}
+
+.searchedProduct-img{
+    height: 90%;
+}
+
+.searchedProduct-img img{
+    height: 100%;
+}
+
+.searchedProduct-details{
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    width: 300px;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.searchedProductTitle{
+    flex: 3;
+}
+
+.searchedProductPrice{
+    flex: 1;
+}

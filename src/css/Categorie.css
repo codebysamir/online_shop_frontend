@@ -1,0 +1,58 @@
+.categorie-box{
+    display: flex;
+    flex-direction: column;
+    /* padding: 16px; */
+    height: auto;
+    width: 600px;
+    position: relative;
+    background-color:blue;
+    margin: auto;
+}
+
+.categorie-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hoverOptions{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    /* margin: -16px; */
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+}
+
+.hoverOptions:hover{
+    transition: opacity 250ms ease-in-out;
+    opacity: 100;
+}
+
+.hoverOptions > h3{
+    color: ghostwhite;
+    font-size: 5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.hoverOptions > span,.hoverOptions > a{
+    color: ghostwhite;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 500;
+    transition: 250ms ease-in-out;
+}
+.hoverOptions > span,.hoverOptions > a:hover{
+    color: darkcyan;
+}
+
+.hoverOptions > svg{
+    transition: 250ms ease-in-out;
+}
+.hoverOptions > svg:hover{
+    color: darkcyan;
+}

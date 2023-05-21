@@ -1,0 +1,33 @@
+@import './Navbar.css';
+@import './Slider.css';
+@import './ProductCategories.css';
+@import './ProductLists.css';
+@import './Footer.css';
+@import './SingleProduct.css';
+@import './PagePath.css';
+@import './Cart.css';
+@import './Modal.css';
+@import './ProductListPage.css';
+@import './successPage.css';
+@import './cancelPage.css';
+@import './Login.css';
+@import './Register.css';
+@import './UserSideMenu.css';
+@import './SearchResults.css';
+
+button{
+    background-color: transparent;
+    padding: 16px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+input{
+    padding: 16px;
+    background-color: transparent;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}

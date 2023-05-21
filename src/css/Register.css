@@ -1,0 +1,63 @@
+.register-box{
+    background-image: url('https://images.pexels.com/photos/1884583/pexels-photo-1884583.jpeg?auto=compress&cs=tinysrgb&w=6720&h=4480&dpr=1');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: cover;
+    /* position: absolute; */
+    box-sizing: border-box;
+    height: 1050px;
+    width: 100%;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden !important;
+    background-color: rgba(0,0,0,0.3);
+    background-blend-mode: overlay;
+}
+
+.registerUser-box{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    background-color: ghostwhite;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.register-box input{
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.register-btn{
+    border: none;
+    background-color: darkseagreen;
+    color: white;
+    width: 40%;
+    border-radius: 5px;
+}
+.register-btn:hover{
+    background-color: darkslategray;
+}
+
+.forgotPassword-btn, .alreadyGotAccount-btn{
+    border: none;
+    font-size: medium;
+    text-decoration: underline;
+    padding: 0.5rem;
+}
+
+.registerError{
+    color: red;
+    font-weight: 500;
+}
+
+.register-box .registerSuccess{
+    background-color: ghostwhite;
+    padding: 2rem;
+}
+
+.register-box .registerSuccess h2{
+    color: darkgreen;
+}
