@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Slides({ slideItem }) {
   const videoRef = useRef()
@@ -19,7 +20,9 @@ export default function Slides({ slideItem }) {
         <div className='slides-description'>
             <h2>{slideItem.title}</h2>
             <span>{slideItem.desc}</span>
-            <button>Show me more</button>
+            <Link to={'/categories/' + slideItem.title}>
+              <button>Show me more</button>
+            </Link>
         </div>
     </div>
   )

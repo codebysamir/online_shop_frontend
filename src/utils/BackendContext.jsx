@@ -14,20 +14,21 @@ export default function BackendProvider({children}) {
     const [products, setProducts] = useState([])
     const [product, setProduct] = useState(null)
 
-    const getAllProductsRequest = async () => {
+    const getAllProductsRequest = async (controller, category) => {
+      console.log(category)
         try {
-            const request = await fetch(LOCAL + '/api/products', {
+            const request = await fetch(!category ? `${LOCAL}/api/products` : `${LOCAL}/api/products?category=${category}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjRhYjBjYWZlZTE4Mjk1MGZiMjg2YyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2ODAxNzk2MTcsImV4cCI6MTY4MDQzODgxN30.gBm4xEF454pimr4rJwm8xk3rnQ3jjAJifeMQDbCTz2o'
-            }
+            },
+            signal: controller.signal,
             })
             const response = await request.json()
             console.log(response)
             setProducts(response)
         } catch (err) {
-            console.log('product request failed, error: ')
+            console.log('product request failed, error: ', err)
         }
     }
 
@@ -37,7 +38,6 @@ export default function BackendProvider({children}) {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjRhYjBjYWZlZTE4Mjk1MGZiMjg2YyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2ODAxNzk2MTcsImV4cCI6MTY4MDQzODgxN30.gBm4xEF454pimr4rJwm8xk3rnQ3jjAJifeMQDbCTz2o'
           }
         })
         const response = await request.json()
@@ -50,8 +50,11 @@ export default function BackendProvider({children}) {
     }
 
     useEffect(() => {
-        getAllProductsRequest()
-      }, [])
+      const controller = new AbortController()
+      getAllProductsRequest(controller)
+
+      return () => controller.abort()
+    }, [])
 
     const backendValue = {
         products,

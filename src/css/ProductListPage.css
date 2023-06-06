@@ -1,13 +1,15 @@
 
 .productsPage-box{
-    padding: 2rem 6rem;
+    padding: 0 6rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
 .productsPage-box h1{
-    font-size: 3rem;
+    font-size: 5rem;
+    text-align: center;
+    padding-top: 0;
 }
 
 .filter-box{
@@ -23,4 +25,15 @@
 
 .filter-box #color, .filter-box #size, .filter-box #sort{
     font-size: 1.2rem
+}
+
+.soldOut{
+    font-size: 2rem;
+}
+
+.soldOut-box{
+    text-align: center;
+    padding: 3rem;
+    margin: 3rem;
+    border: 5px solid darkorange;
 }

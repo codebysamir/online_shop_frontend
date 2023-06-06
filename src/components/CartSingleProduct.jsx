@@ -67,7 +67,7 @@ export default function CartSingleProduct({product, quantity, size, color}) {
         <div className="details">
             <div className="topbar">
                 <span className="name">{product.title}</span>
-                <FontAwesomeIcon className='favIcon' icon={!isFavorite ? faHeartCirclePlus : faHeart} onClick={handleAddToFavorite} color={isFavorite && 'red'}/>
+                <FontAwesomeIcon className='favIcon' icon={!isFavorite ? faHeartCirclePlus : faHeart} onClick={handleAddToFavorite} color={isFavorite ? 'red' : ''}/>
             </div>
             <span className="price">{product.price * quantity}</span>
             <span className="description">{product.desc}</span>

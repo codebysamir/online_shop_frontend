@@ -1,9 +1,10 @@
 .categorie-box{
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     /* padding: 16px; */
     height: auto;
-    width: 600px;
+    width: 500px;
     position: relative;
     background-color:blue;
     margin: auto;

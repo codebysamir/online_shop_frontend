@@ -1,8 +1,27 @@
 @import './Categorie.css';
 
 .productCategories-box{
-    padding: 2rem;
-    display: grid;
+    padding: 2rem 8rem;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
     gap: 16px;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productCategories{
+    position: relative;
+}
+
+.productCategories h1{
+    margin: 0;
+    padding: 0;
+    /* height: 100%; */
+    letter-spacing: 2.5rem;
+    font-size: 3rem;
+    transform: rotate(270deg);
+    position: absolute;
+    top: 35%;
+    left: -10%;
+    color: darkcyan;
 }

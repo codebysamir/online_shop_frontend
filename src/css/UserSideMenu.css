@@ -1,3 +1,7 @@
+body.overlay{
+    overflow: hidden;
+}
+
 .navbar-box .overlay{
     display: flex;
 }
@@ -19,15 +23,18 @@
     flex: 1;
 }
 .userSideMenu-box .profileImg .isAdmin{
-    color: darkslateblue;
-    border: 4px solid darkslateblue;
+    color: darkcyan;
+    border: 4px solid darkcyan;
     border-radius: 5px;
     padding: 0.5rem;
     font-size: 1.5rem;
     font-weight: 500;
 }
 .userSideMenu-box .profileImg img{
-    height: 100px;
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .userSideMenu-box .user-details, .change-user{
@@ -45,7 +52,7 @@
 }
 
 .user-details-highlight{
-    color:mediumslateblue;
+    color:darkcyan;
 }
 
 .userSideMenu-box .change-user{
@@ -170,6 +177,7 @@
 
 .order-box .orderProduct-img img, .favorites-box .favProduct-img img{
     height: 100%;
+    border-radius: 10px;
 }
 
 .order-box .orderProduct-img, .favorites-box .favProduct-img{

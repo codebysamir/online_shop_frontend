@@ -52,6 +52,7 @@ export default function AuthProvider({children}) {
             userId: response._id,
             email: response.email,
             username: response.username,
+            img: response.img,
             createdAt: response.createdAt,
             isAdmin: response.isAdmin
           })

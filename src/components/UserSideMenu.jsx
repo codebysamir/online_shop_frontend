@@ -25,8 +25,6 @@ export default function UserSideMenu() {
     const [showFavoritesModal, setShowFavoritesModal] = useState(false)
     const { favorites, setFavorites } = useContext(FavoritesContext)
 
-    // const favorites = JSON.parse(localStorage.getItem('favorites'))
-
     function handleDetailToChange(e) {
       setUserModal(true)
       const detail = e.target.innerText.split(' ')[1].toLowerCase()
@@ -54,13 +52,11 @@ export default function UserSideMenu() {
       setFavorites(favorites.filter(favorite => favorite._id !== productId))
     }
 
-    console.log(orderHistory)
-
   return (
     <div className="overlay" onClick={() => setModal(false)}>
         <div className={`userSideMenu-box active`} onClick={(e) => e.stopPropagation()}>
           <div className="profileImg">
-              <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg'></img>
+              <img src={user?.img} />
               {user?.isAdmin && <span className='isAdmin'>Admin</span>}
           </div>
           <div className="user-details">

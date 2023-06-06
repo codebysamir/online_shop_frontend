@@ -1,31 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Product from './Product'
+import { BackendContext } from '../utils/BackendContext'
 
 const LOCAL = import.meta.env.VITE_LOCALHOST_URL
 
 
 export default function FilteredProductLists({cat, filters, sort}) {
-  const [products, setProducts] = useState([])
-  const [filteredProduct, setFilteredProduct] = useState(products)
+  // const [products, setProducts] = useState([])
+  const [filteredProduct, setFilteredProduct] = useState([])
+  const { getAllProductsRequest, products, loading, error } = useContext(BackendContext)
 
   useEffect(() => {
-    const productRequest = async () => {
-      try {
-        const request = await fetch(LOCAL + '/api/products', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjRhYjBjYWZlZTE4Mjk1MGZiMjg2YyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2ODAxNzk2MTcsImV4cCI6MTY4MDQzODgxN30.gBm4xEF454pimr4rJwm8xk3rnQ3jjAJifeMQDbCTz2o'
-          }
-        })
-        const response = await request.json()
-        console.log(response)
-        setProducts(response)
-      } catch (err) {
-        console.log('product request failed, error: ')
-      }
-    }
-    productRequest()
+    const controller = new AbortController()
+    getAllProductsRequest(controller, cat)
+    // setFilteredProduct(products)
+
+    return () => controller.abort()
   }, [])
 
   useEffect(() => {
@@ -45,16 +35,44 @@ export default function FilteredProductLists({cat, filters, sort}) {
   }, [sort])
 
   useEffect(() => {
-    setFilteredProduct(products.filter(product => Object.entries(filters).every(([key, value]) => {
-        if (key === 'color') return Object.keys(product[key]).includes(value)
-        if (key === 'size') return product[key].includes(value)
+    console.log(filteredProduct)
+    console.log(filters)
+    
+    if (filters) {
+      setFilteredProduct(products.filter(product => Object.entries(filters).every(([key, value]) => {
+        if (key === 'color' && value !== '') {
+          return Object.keys(product[key]).includes(value)
+        } else if (key === 'color' && value === '') {
+          return Object.keys(product[key])
+        }
+        if (key === 'size' && value !== '') {
+          return product[key].includes(value)
+        } else if (key === 'size' && value === '') {
+          return product[key]
+        }
       }))
-    )
+      )
+    } else {
+      setFilteredProduct(products)
+    }
+    
   }, [products, cat, filters])
-
+  
+  console.log(filteredProduct)
   return (
-    <div className='productList-box'>
-      {filteredProduct.map(product => <Product key={product._id} product={product} />)}
+    <>
+    {!filteredProduct.length ? 
+    <div className='soldOut-box'>
+      <span className='soldOut'>Sadly this category is sold out.</span>
     </div>
+    :
+    <div className='productList-box'>
+      {loading ? <span>Loading...</span>
+      :
+      filteredProduct.map(product => <Product key={product._id} product={product} />
+      )}
+      {error && <span>Oops it seems like there is a problem, please reload the page or go back.<br/>{error?.message ?? error}</span>}
+    </div>}
+    </>
   )
 }

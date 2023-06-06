@@ -7,10 +7,7 @@ import { useParams } from 'react-router-dom'
 export default function ProductListPage() {
     const { cat } = useParams()
 
-    const [filter, setFilter] = useState({
-        color: 'blue',
-        size: 'S'
-    })
+    const [filter, setFilter] = useState()
 
     const [sort, setSort] = useState('desc')
 
@@ -33,28 +30,48 @@ export default function ProductListPage() {
                     <select 
                         name="color" 
                         id="color" 
-                        value={filter.color}
+                        value={filter?.color ?? ''}
                         onChange={(e) => handleFilter(e)}
                     >
+                        <option value={''}>-- select option --</option>
                         <option value="blue">Blue</option>
                         <option value="grey">Grey</option>
                         <option value="black">Black</option>
                         <option value="orange">Orange</option>
                         <option value="brown">Brown</option>
                         <option value="darkgrey">Darkgrey</option>
+                        <option value="white">White</option>
                     </select>
                     <select 
                         name="size" 
                         id="size" 
-                        value={filter.size}
+                        value={filter?.size ?? ''}
                         onChange={(e) => handleFilter(e)}
                     >
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
+                            {cat === 'hats' ?
+                            (<option value="onesize">One Size</option>)
+                            : (cat === 'shoes' ?
+                            (<>
+                            <option value={''}>-- select option --</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            </>)
+                            :
+                            (<>
+                            <option value={''}>-- select option --</option>
+                            <option value="xs">XS</option>
+                            <option value="x">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                            <option value="xxl">XXL</option>
+                            </>))
+                            }
                     </select>
                 </div>
                 <div className="sort">

@@ -52,10 +52,6 @@ export default function Product({product}) {
     setIsFavorite(false)
   }, [favorites])
 
-  const sizes = [
-    'XS', 'S', 'M', 'L', 'XL', 'XXL'
-  ]
-  
   return (
     <div className='product-box'>
         <img

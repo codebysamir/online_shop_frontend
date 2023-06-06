@@ -14,7 +14,7 @@ import { FavoritesContext } from '../utils/FavoritesContext'
 
 export default function Navbar() {
   const cart = useContext(CartContext)
-  const { isLoggedIn, logoutUser } = useContext(AuthContext)
+  const {user, isLoggedIn, logoutUser } = useContext(AuthContext)
   const { products } = useContext(BackendContext)
   const { modal, setModal } = useContext(ModalContext)
   const { setFavorites } = useContext(FavoritesContext)
@@ -22,7 +22,7 @@ export default function Navbar() {
   const [searchModal, setSearchModal] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   const [searchResult, setSearchResult] = useState([])
-
+  
   function handleLoggingOut() {
     logoutUser()
     setFavorites([])
@@ -34,9 +34,9 @@ export default function Navbar() {
     window.onscroll = (e) => {
       // console.log(window.scrollY)
       // console.log(scrollPos)
-      if (window.scrollY === 0 || window.scrollY > scrollPos) {
+      if (window.scrollY !== 0 && window.scrollY > scrollPos) {
         setShowNavbar(true)
-      } else {
+      } else  {
         setShowNavbar(false)
         // console.log('down')
       }
@@ -46,10 +46,22 @@ export default function Navbar() {
 
     return () => {
       if (window.scrollY === 0 && !showNavbar) {
-        setShowNavbar(true)
+        setShowNavbar(false)
       }
     }
   }, [window.scrollY, showNavbar])
+
+  useEffect(() => {
+    if (modal) {
+      document.body.classList.add('noScroll');
+    } else {
+      document.body.classList.remove('noScroll');
+    }
+
+    return () => {
+      document.body.classList.remove('noScroll');
+    };
+  }, [modal])
 
   function handleSearch() {
     if (!searchInput.length) return
@@ -73,16 +85,17 @@ export default function Navbar() {
       <div className='signIn_signOut-box'>
           {isLoggedIn ?
             <>
-              <FontAwesomeIcon icon={faCircleUser} className='profile' onClick={() => setModal(true)} />
-              <span onClick={handleLoggingOut} >Sign Out</span>
+              <img src={user.img} className='profile' onClick={() => setModal(true)} />
+              {/* <FontAwesomeIcon icon={faCircleUser} className='profile' onClick={() => setModal(true)} /> */}
+              <span className='signIn_signOut-text' onClick={handleLoggingOut} >Sign Out</span>
             </>
             :
             <>
               <Link to={'/register'}>
-                <span>Register</span>
+                <span className='signIn_signOut-text'>Register</span>
               </Link>
               <Link to={'/login'}>
-                <span>Sign In</span>
+                <span className='signIn_signOut-text'>Sign In</span>
               </Link>
             </>
           }
