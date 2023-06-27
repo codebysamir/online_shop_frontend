@@ -85,7 +85,7 @@ export default function Product({product}) {
           <span className="topbarTitle">Choose Color</span>
           <div className="colors">
             {Object.entries(product.color).map(([colorName, colorHex]) => 
-            <span title={colorName} key={colorName} style={{color: colorHex, backgroundColor: colorHex}} className={color ? (color[0] === colorName ? "color active" : "color") : "color"} onClick={() => setColor([colorName, colorHex])} ></span>)}
+            <span title={colorName} key={colorName} style={{color: colorHex, backgroundColor: colorHex}} className={color ? (Object.keys(color)[0] === colorName ? "color active" : "color") : "color"} onClick={() => setColor({ [colorName]: colorHex })} ></span>)}
           </div>
           <button disabled={(!color || !size)} className="addToCart" onClick={handleAddToCartBtn}>ADD TO CART</button>
         </div>)}

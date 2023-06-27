@@ -27,31 +27,31 @@ export default function CartSingleProduct({product, quantity, size, color}) {
     }, [count])
 
     useEffect(() => {
-      const duplicate = favorites.find(favorite => favorite?._id === product._id)
+      const duplicate = favorites.find(favorite => favorite?._id === product?._id)
       if (duplicate) return
       setIsFavorite(false)
     }, [favorites])
 
     function handleRemoveFromCart() {
       setCount(count => count - 1)
-      cart.removeOneFromCart(product._id, size, color)
+      cart.removeOneFromCart(product?._id, size, color)
     }
 
     function handleAddFromCart() {
       setCount(count => count + 1)
-      cart.addOneToCart(product._id, count + 1, size, color)
+      cart.addOneToCart(product?._id, count + 1, size, color)
     }
 
     function handleDeleteFromCart() {
-      cart.deleteFromCart(product._id, size, color)
+      cart.deleteFromCart(product?._id, size, color)
       setModal(false)
     }
 
     function handleAddToFavorite() {
       if (!isLoggedIn) navigate('/login')
-      const duplicate = favorites.find(favorite => favorite?._id === product._id)
+      const duplicate = favorites.find(favorite => favorite?._id === product?._id)
       if (duplicate) {
-        setFavorites(favorites.filter(favorite => favorite._id !== product._id))
+        setFavorites(favorites.filter(favorite => favorite._id !== product?._id))
       } else {
         setFavorites([...favorites, product])
         setIsFavorite(true)
@@ -62,18 +62,18 @@ export default function CartSingleProduct({product, quantity, size, color}) {
     <>
     <div className="product">
         <div className="image-box">
-            <img src={product.img} alt="" />
+            <img src={product?.img} alt="" />
         </div>
         <div className="details">
             <div className="topbar">
-                <span className="name">{product.title}</span>
+                <span className="name">{product?.title}</span>
                 <FontAwesomeIcon className='favIcon' icon={!isFavorite ? faHeartCirclePlus : faHeart} onClick={handleAddToFavorite} color={isFavorite ? 'red' : ''}/>
             </div>
-            <span className="price">{product.price * quantity}</span>
-            <span className="description">{product.desc}</span>
+            <span className="price">{product?.price * quantity}</span>
+            <span className="description">{product?.desc}</span>
             <div className="additionalInfo">
               <span className="size">{size}</span>
-              <span className="color" title={color[0]} style={{color: color[1], backgroundColor: color[1]}}></span>
+              <span className="color" title={Object.keys(color)[0]} style={{color: Object.values(color)[0], backgroundColor: Object.values(color)[0]}}></span>
             </div>
             <div className="quantity">
                 {quantityIsOne ?

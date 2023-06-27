@@ -7,13 +7,14 @@ export default function SingleProduct({product}) {
     const cart = useContext(CartContext)
     const [count, setCount] = useState(1) 
     const [size, setSize] = useState(product.size[0]) 
-    const [color, setColor] = useState(Object.entries(product.color)[0]) 
+    const [color, setColor] = useState(Object.fromEntries([Object.entries(product.color)[0]])) 
 
     function handleAddToCart() {
         console.log(cart)
         cart.addOneToCart(product._id, count, size, color)
     }
 
+    console.log(color)
     console.log(product)
 
   return (
@@ -32,7 +33,7 @@ export default function SingleProduct({product}) {
                 <span className="color-box">
                     <span>Color</span>
                     {Object.entries(product.color).map(([colorName, colorHex]) => {
-                        return <div title={colorName} key={colorName} style={{color: colorHex, backgroundColor: colorHex}} className={color[0] === colorName ? "color active" : "color"} onClick={() => setColor([colorName, colorHex])}></div>
+                        return <div title={colorName} key={colorName} style={{color: colorHex, backgroundColor: colorHex}} className={Object.keys(color)[0] === colorName ? "color active" : "color"} onClick={() => setColor({[colorName]: colorHex})}></div>
                     })}
                 </span>
                 <span className="size-box">

@@ -42,7 +42,8 @@ export default function OrderProvider({children}) {
             products: cartProducts.map(products => ({
                 productId: products.id, 
                 quantity: products.quantity,
-                size: products.size
+                size: products.size,
+                color: products.color,
               })
             ),
             amount: stripeData.amount_total / 100,

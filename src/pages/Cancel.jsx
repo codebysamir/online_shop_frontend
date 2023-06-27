@@ -11,6 +11,9 @@ export default function Cancel() {
             <Link to={'/'}>
               <button className="backToHome">Go to Homepage</button>
             </Link>
+            <Link to={'/cart'}>
+              <button className="backToHome">Back to Cart</button>
+            </Link>
             <Link to={-1}>
               <button className="backToHome">Back to Checkout</button>
             </Link>
